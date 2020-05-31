@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>杨宇翔</title>
+    <link rel="short icon" href="Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStyle.css">
+
+    <script type="text/javascript"  src="CommonMethod.js"></script>
+
+
+    <style>
+        .L_second_div{
+            text-align: center;
+        }
+
+        .L_second_div img{
+            margin-top: 50px;
+        }
+
+        .L_form_div{
+            background: white;
+            width: 90%;
+            margin: 0 auto;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            height: 100px;
+            margin-top: 30px;
+        }
+
+        .L_account_div{
+            height: 50px;
+            border: 1px solid #cccccc;
+        }
+
+        .L_form_div div span{
+            font-size: 20px;
+            padding-left: 15px;
+            line-height: 50px;
+        }
+
+        input{
+            outline: medium;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .L_login_bin_div {
+            height: 50px;
+            background: rgb(36,92,161);
+            width: 90%;
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+
+        }
+
+        .L_login_bin_div input{
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+        }
+
+
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+<header class="DS_header">
+    <span >登录</span>
+</header>
+
+
+<div class="L_second_div">
+    <img class="L_head_img" src="Resource/head.png" alt="">
+</div>
+
+
+<form action="">
+    <div class="L_form_div">
+
+        <div class="L_account_div">
+             <span>账号名:</span>
+             <input  id="L_account" type="text" name="account"><br>
+        </div>
+
+         <div>
+              <span>密码:</span>
+               <input  id="L_pwd" type="text" name="password"><br>
+         </div>
+    </div>
+
+    <div class="L_login_bin_div">
+          <input  type="button" value="登录"  id="L_btn">
+    </div>
+</form>
+
+
+<script>
+//    function login() {
+//        alert("还未输入任何东西")
+ //   }
+
+ //   var login1=function () {
+//        alert("还未输入任何东西")
+ //   }
+
+
+
+
+
+
+var btn = document.querySelector("#L_btn");
+
+btn.onclick = function(){
+
+    var userName = encodeURIComponent(document.querySelector("#L_account").value);
+    var pwd = encodeURIComponent(document.querySelector("#L_pwd").value);
+
+    var par = "username=" + userName + "&pwd=" + pwd;
+
+    requestMethod('post', 'login', par, function(str){
+
+        if (str == "登录成功"){
+            location.href = "DropletService.html";
+        } else {
+            alert(str);
+        }
+
+    });
+
+
+
+}
+
+//        var userName=document.querySelector("#L_account").value;
+ //       var pwd=document.querySelector("#L_pwd").value;
+
+   //     if(userName == "hskj" && pwd == "123456"){
+  //          location.href="DropletService.html";
+  //      }
+   //     else{
+  //          location.href="www.baidu.com"
+  //      }
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
