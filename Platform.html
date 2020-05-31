@@ -5,6 +5,8 @@
     <title>杨宇翔</title>
     <link rel="short icon" href="Resource/icon.png">
     <link rel="stylesheet" href="ExternalStyle.css">
+    
+     <script type="text/javascript"  src="CommonMethod.js"></script>
 
     <style>
         article{
@@ -49,39 +51,27 @@
     <h4 id="subTitle"></h4>
     <p id="info"> </p>
 
-    <script>
+     <script>
 
-            var xhr = new XMLHttpRequest()
 
-            //第二补：建立与服务端的连接（找到哪个服务器去要数据）
-            xhr.open('get','https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus');
 
-            //设置头信息，告诉服务器让数据以表单的形式传递过去
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")
+        requestMethod('get', 'aboutus', "",  function(str) {
 
-            xhr.send();
-
-            xhr.onreadystatechange = function () {
-
-                if (xhr.readyState == 4 && xhr.status == 200){
-                    var responseData = JSON.parse(xhr.responseText);
-
-                    var obj = responseData.data;
 
                     var  h3 = document.getElementById("title");
                     var  h4 = document.getElementById("subTitle");
                     var  p = document.getElementById("info");
 
-                    h3.innerHTML = obj.title;
-                    h4.innerHTML = obj.subTitle;
-                    p.innerHTML = obj.info;
+                    h3.innerHTML = str.title;
+                    h4.innerHTML = str.subTitle;
+                    p.innerHTML = str.info;
 
 
 
 
-                }
+                });
 
-            }
+
 
 
 
